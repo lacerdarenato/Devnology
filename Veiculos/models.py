@@ -5,12 +5,12 @@ class Veiculo (models.Model):
 
     modelo = models.CharField(max_length=30)
     marca = models.CharField(max_length=30)
-    ano = models.IntegerField(max_length=4)
+    ano = models.DecimalField(max_digits=4, decimal_places=0)
     cor = models.CharField(max_length=30)
     placa = models.CharField(max_length=7)
     chassi = models.CharField(max_length=17, unique=True)
     dataCompra = models.DateField(auto_now_add=True)
-    valorCompra = models.DecimalField(decimal_places=2)
+    valorCompra = models.DecimalField(max_digits=10, decimal_places=2)
 
     def __str__(self):
         return self.modelo

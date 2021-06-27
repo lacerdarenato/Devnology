@@ -36,5 +36,20 @@ Ao finalizar a prova basta enviar o link do repositório no linkedin.
 
 #1ª decisão
 Escolhi trabalhar com Python (framework Django) para a API e Angular como client por ja conhecer as 
-ferramentas e por ambas facilitarem na organização do código e legibilidade do código.
+ferramentas e por ambas facilitarem na organização do código e legibilidade do código. 
+Alem de facilitarem os inputs dos dados na API.
+
+#2ª decisão
+Definido o modelo de entrada dos dados com as seguintes validações:
+
+| Campo | validação |
+--- | --- 
+modelo | models.CharField(max_length=30) #tamanho maximo de 30 caracteres
+marca | models.CharField(max_length=30) #tamanho maximo de 30 caracteres
+ano | models.DecimalField(max_digits=4, decimal_places=0) #tamanho maximo de 4 digitos sem decimais
+cor | models.CharField(max_length=30) #tamanho maximo de 30 caracteres
+placa | models.CharField(max_length=7) #tamanho maximo de 7 caracteres
+chassi | models.CharField(max_length=17, unique=True) #tamanho maximo de 17 caracteres e único
+dataCompra | models.DateField(auto_now_add=True) #Inclusão automatica ao criar novo carro
+valorCompra | models.DecimalField(max_digits=10, decimal_places=2) #tamanho maximo de 4 digitos sem decimais
 
