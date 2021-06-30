@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { SharedService } from 'src/app/shared.service';
 
 @Component({
   selector: 'app-add-edit-veiculo',
@@ -7,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddEditVeiculoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service:SharedService) { }
+
+  @Input() tk:any;
+  id: number | undefined;
+  title: string | undefined;
+  description: string | undefined;
+  concluded: string | undefined;
 
   ngOnInit(): void {
   }

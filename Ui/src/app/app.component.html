@@ -1,2 +1,19 @@
-<h2>Apenas Testando!!!</h2>
-<router-outlet></router-outlet>
+<div class="container">
+
+  <h3 class="d-flex justify-content-center">Controle de Veículos</h3>
+
+  <nav class="navbar navbar-expand-sm bg-light navbar-dark">
+  <ul class="navbar-nav">
+      <li class="nav-item">
+          <button routerLink="veiculos/"
+          class="m1 btn btn-light btn-outline-primary" Button>Veiculos</button>
+      </li>
+      <li class="nav-item">
+        <button routerLink="vendas/"
+        class="m1 btn btn-light btn-outline-primary" Button>Vendas</button>
+    </li>
+  </ul>
+  </nav>
+  <router-outlet></router-outlet>
+
+</div>
