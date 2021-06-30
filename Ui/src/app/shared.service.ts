@@ -23,7 +23,12 @@ readonly APIUrl = "http://127.0.0.1:8000/";
   }
 
   deleteVehicle(val:any){
-    return this.http.delete(this.APIUrl + 'veiculos/', val);
+    console.log(val);
+    return this.http.delete(this.APIUrl + 'veiculos/' + val);
+  }
+
+  getVendaList():Observable<any[]>{
+    return this.http.get<any[]>(this.APIUrl + 'vendas/');
   }
 
   saleVehicle(val:any){

@@ -1,1 +1,22 @@
-<p>add-edit-veiculo works!</p>
+<div class="form-froup row">
+    <div class="col-sm-10">
+        <label class="col-sm2 col-form-label">modelo</label>
+        <input type="text" class="form-control" [(ngModel)]="modelo" placeholder="Digite a modelo do veículo">
+        <label class="col-sm2 col-form-label">marca</label>
+        <input type="text" class="form-control" [(ngModel)]="marca" placeholder="Escolha o marca do veículo">
+        <label class="col-sm2 col-form-label">ano</label>
+        <input type="text" class="form-control" [(ngModel)]="ano" placeholder="Escolha o ano do veículo">
+        <label class="col-sm2 col-form-label">cor</label>
+        <input type="text" class="form-control" [(ngModel)]="cor" placeholder="Escolha o cor do veículo">
+        <label class="col-sm2 col-form-label">placa</label>
+        <input type="text" class="form-control" [(ngModel)]="placa" placeholder="Escolha o placa do veículo">
+        <label class="col-sm2 col-form-label">chassi</label>
+        <input type="text" class="form-control" [(ngModel)]="chassi" placeholder="Escolha o chassi do veículo">
+        <label class="col-sm2 col-form-label">valorCompra</label>
+        <input type="text" class="form-control" [(ngModel)]="valorCompra" placeholder="Escolha o valorCompra do veículo">
+        <label class="col-sm2 col-form-label">situacao</label>
+        <input type="text" class="form-control" [(ngModel)]="situacao" placeholder="Escolha o situacao do veículo">
+    </div>
+</div>
+<button (click)="addVehicle()" *ngIf="vehi.id == 0" class="btn btn-primary"> Comprar Veiculo</button>
+<button (click)="updateVehicle(vehi)" *ngIf="vehi.id != 0" class="btn btn-primary"> Atualizar Veiculo</button>

@@ -11,6 +11,7 @@ import { SharedService } from './shared.service';
 
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AddVendaComponent } from './venda/add-venda/add-venda.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     VeiculosComponent,
     ShowDelVeiculoComponent,
     AddEditVeiculoComponent,
-    VendaComponent
+    VendaComponent,
+    AddVendaComponent
   ],
   imports: [
     BrowserModule,

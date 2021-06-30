@@ -1,1 +1,20 @@
-<p>venda works!</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Veiculo</th>
+            <th>Data da Venda</th>
+            <th>Valor da Venda</th>
+            <th>Comissão</th>
+        </tr>
+    </thead>
+    <Tbody>
+        <tr *ngFor="let venda of VendaList">
+            <td>{{venda.veiculo}}</td>
+            <td>{{venda.dataDeVenda}}</td>
+            <td>R$ {{venda.valor}}</td>
+            <td>R$ {{venda.comissao}}</td>
+        </tr>
+    </Tbody>
+</table>
+
+

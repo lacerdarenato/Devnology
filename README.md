@@ -1,28 +1,21 @@
 O intuito deste exercício é validar o máximo de conhecimento que você possui.
 
 Antes de mais nada, crie um repositório no git e cole o conteúdo desse texto no readme.
+Você precisará construir um sistema para uma agência de veículos, ele será composto por uma api e um frontend (Desktop ou Mobile). 
+Sinta-se à vontade para usar a linguagem que achar melhor e pode usar templates prontos, frameworks e/ou outras coisas que possam facilitar a sua vida.
 
-Você precisará construir um sistema para uma agência de veículos, ele será composto por uma api e 
-um frontend (Desktop ou Mobile).
-
-Sinta-se à vontade para usar a linguagem que achar melhor e pode usar templates prontos, frameworks 
-e/ou outras coisas que possam facilitar a sua vida.
-
-####Crie um arquivo readme falando um pouco sobre quais as decisões que você tomou para a resolução do exercício, e, caso não tenha feito algo, explique o motivo. Também informe os passos para fazer sua aplicação rodar, e caso tenha, o processo de deploy.
+###Crie um arquivo readme falando um pouco sobre quais as decisões que você tomou para a resolução do exercício, e, caso não tenha feito algo, explique o motivo. Também informe os passos para fazer sua aplicação rodar, e caso tenha, o processo de deploy.
 
 ---
+Tarefas
+
 Precisamos que nosso sistema seja capaz de:
 
--[ ] Cadastrar a compra de um veículo, modelo, marca, ano de fabricação, placa, cor, 
- chassi, data da compra e valor da compra.
-
--[ ] Registrar a venda de um veículo, com data da venda, valor da venda e comissão 
- do vendedor (10% sobre o lucro da venda).
----
--[ ] Deverá ser possível listar todos os veículos
+-[X] Cadastrar a compra de um veículo, modelo, marca, ano de fabricação, placa, cor, chassi, data da compra e valor da compra.
+-[ ] Registrar a venda de um veículo, com data da venda, valor da venda e comissão do vendedor (10% sobre o lucro da venda).
+-[X] Deverá ser possível listar todos os veículos
 -[ ] veículos disponíveis
 -[ ] histórico de veículos vendidos.
----
 -[ ] Listar o valor total em compras e vendas. 
 -[ ] Lucro/prejuízo do mês
 -[ ] valor pago em comissões.
@@ -34,12 +27,11 @@ Qualquer dúvida entre em contato comigo pelo linkedin, estarei à disposição 
 
 Ao finalizar a prova basta enviar o link do repositório no linkedin.
 
-#1ª decisão
-Escolhi trabalhar com Python (framework Django) para a API e Angular como client por ja conhecer as 
-ferramentas e por ambas facilitarem na organização e legibilidade do código. 
-Alem de facilitarem os inputs dos dados na API.
+---
 
-#2ª decisão
+- Escolhi trabalhar com Python (framework Django) para a API e Angular como client por ja conhecer as ferramentas e por ambas facilitarem na organização e legibilidade do código. Alem de facilitarem os inputs dos dados na API.
+
+
 ###Definido o modelo de entrada dos veículos com as seguintes validações:
 
 | Campo | Validação |
@@ -63,5 +55,8 @@ dataDeVenda | models.DateField() #modelo de Data
 valor | models.DecimalField(max_digits=10, decimal_places=2) #tamanho maximo de 10 digitos com duas casas decimais
 comissao | models.DecimalField(max_digits=9, decimal_places=2) #tamanho maximo de 9 digitos com duas casas decimais
 
+
+- Definida a relação entre venda e veículo de 1:1, achei mais coerente e mais facil de validar para a regra de negócio cada venda possuir apenas veículo
+- Incluído o campo situação para determinar status do carro e facilitar na filtragem de histórico de vendas, no banco armazena-se 1 caracter (economia de espaço) e quando a API receber a requisição, o serializer dela "traduz" o caracter para a informação mais legível ao usuário.
 
 
