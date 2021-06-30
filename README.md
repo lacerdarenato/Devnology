@@ -36,13 +36,13 @@ Ao finalizar a prova basta enviar o link do repositório no linkedin.
 
 #1ª decisão
 Escolhi trabalhar com Python (framework Django) para a API e Angular como client por ja conhecer as 
-ferramentas e por ambas facilitarem na organização do código e legibilidade do código. 
+ferramentas e por ambas facilitarem na organização e legibilidade do código. 
 Alem de facilitarem os inputs dos dados na API.
 
 #2ª decisão
-Definido o modelo de entrada dos veículos com as seguintes validações:
+###Definido o modelo de entrada dos veículos com as seguintes validações:
 
-| Campo | validação |
+| Campo | Validação |
 --- | --- 
 modelo | models.CharField(max_length=30) #tamanho maximo de 30 caracteres
 marca | models.CharField(max_length=30) #tamanho maximo de 30 caracteres
@@ -52,4 +52,16 @@ placa | models.CharField(max_length=7) #tamanho maximo de 7 caracteres
 chassi | models.CharField(max_length=17, unique=True) #tamanho maximo de 17 caracteres e único
 dataCompra | models.DateField(auto_now_add=True) #Inclusão automatica ao criar novo carro
 valorCompra | models.DecimalField(max_digits=10, decimal_places=2) #tamanho maximo de 4 digitos sem decimais
+situacao | models.CharField(max_length=1, choices=escolhaStatus) #tamanho máximo de 1 caracter que é flag das opções 'disponível' ou 'vendido'
+
+###Definido o modelo de entrada dos veículos com as seguintes validações:
+
+| Campo | Validação |
+--- | --- 
+veiculo | models.OneToOneField("Veiculos.Veiculo", on_delete=models.CASCADE) #Relacionamento 1:1 com tabela veículos, apaga a venda ao deletar o veículo relacionado
+dataDeVenda | models.DateField() #modelo de Data
+valor | models.DecimalField(max_digits=10, decimal_places=2) #tamanho maximo de 10 digitos com duas casas decimais
+comissao | models.DecimalField(max_digits=9, decimal_places=2) #tamanho maximo de 9 digitos com duas casas decimais
+
+
 
