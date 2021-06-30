@@ -40,7 +40,7 @@ ferramentas e por ambas facilitarem na organização do código e legibilidade d
 Alem de facilitarem os inputs dos dados na API.
 
 #2ª decisão
-Definido o modelo de entrada dos dados com as seguintes validações:
+Definido o modelo de entrada dos veículos com as seguintes validações:
 
 | Campo | validação |
 --- | --- 
