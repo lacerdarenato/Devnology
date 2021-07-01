@@ -48,7 +48,8 @@ data-backdrop="static" data-keyboard="false"
             <td>{{vehicle.chassi}}</td>
             <td>{{vehicle.dataCompra}}</td>
             <td>R$ {{vehicle.valorCompra}}</td>
-            <td>{{vehicle.situacao}}</td>
+            <td *ngIf="vehicle.situacao === '1'">Disponivel</td>
+            <td *ngIf="vehicle.situacao === '2'">Vendido</td>
             <td>
                 <button type="button" class="btn btn-light mr-1"
                 data-bs-toggle="modal" data-bs-target="#comprarModal"
@@ -80,7 +81,7 @@ data-backdrop="static" data-keyboard="false"
                   <div class="modal-dialog modal-dialog-centered modal-xl">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="venderModalLabel">Venda de veículo</h5>
+                        <h5 class="modal-title" id="venderModalLabel">{{ModalTitle}}</h5>
                         <button type="button" class="btn-close"
                         data-bs-dismiss="modal" aria-label="Close"
                         (click)="closeClick()">

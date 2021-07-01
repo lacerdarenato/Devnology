@@ -9,7 +9,7 @@ from Veiculos.serializer import VeiculoSerializer
 
 
 @csrf_exempt
-def VendaViewSet(request, id=0):
+def VendaViewSet(request):
     if request.method == 'GET':
         venda = Venda.objects.all()
         venda_serializer = VendaSerializer(venda, many=True)
@@ -20,7 +20,6 @@ def VendaViewSet(request, id=0):
         veiculo = Veiculo.objects.get(id=venda_data['veiculo'])
         venda_data['comissao'] = (int(venda_data['valor']) - veiculo.valorCompra) / 10
         venda_serializer = VendaSerializer(data=venda_data)
-        veiculo.situacao = 2
         print(veiculo.situacao)
         print(venda_data)
         if venda_serializer.is_valid():

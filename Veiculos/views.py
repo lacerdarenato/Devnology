@@ -26,7 +26,6 @@ def VehicleViewSet(request, id=0):
         veiculo_data = JSONParser().parse(request)
         veiculo = Veiculo.objects.get(id=veiculo_data['id'])
         veiculo_Serializer = VeiculoSerializer(veiculo, data=veiculo_data)
-        print(veiculo_Serializer)
         if veiculo_Serializer.is_valid():
             veiculo_Serializer.save()
             return JsonResponse("Veículo atualizado com sucesso!", safe=False)

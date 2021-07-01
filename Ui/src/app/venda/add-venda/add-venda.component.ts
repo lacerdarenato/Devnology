@@ -28,6 +28,10 @@ export class AddVendaComponent implements OnInit {
     this.service.saleVehicle(val).subscribe(res=>{
       alert(res.toString());
     });
+    item.situacao = 2;
+    this.service.updateVehicle(item).subscribe(res=>{
+      alert(res.toString());
+    });
   }
 
 }

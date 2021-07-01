@@ -62,6 +62,7 @@ export class AddEditVeiculoComponent implements OnInit {
       valorCompra: this.valorCompra,
       situacao: this.situacao,
     };
+    console.log(val.situacao);
     this.service.updateVehicle(val).subscribe(res=>{
       alert(res.toString());
     });
