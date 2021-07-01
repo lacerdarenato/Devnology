@@ -12,7 +12,7 @@ Tarefas
 Precisamos que nosso sistema seja capaz de:
 
 -[X] Cadastrar a compra de um veículo, modelo, marca, ano de fabricação, placa, cor, chassi, data da compra e valor da compra.
--[ ] Registrar a venda de um veículo, com data da venda, valor da venda e comissão do vendedor (10% sobre o lucro da venda).
+-[X] Registrar a venda de um veículo, com data da venda, valor da venda e comissão do vendedor (10% sobre o lucro da venda).
 -[X] Deverá ser possível listar todos os veículos
 -[ ] veículos disponíveis
 -[ ] histórico de veículos vendidos.

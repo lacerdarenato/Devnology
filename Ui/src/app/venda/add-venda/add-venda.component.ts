@@ -10,25 +10,24 @@ export class AddVendaComponent implements OnInit {
 
   constructor(private service:SharedService) { }
 
-  @Input() vend:any;
-  id: number | undefined;
-  veiculo: string | undefined;
-  data: Date | undefined;
+  @Input() vehi:any;
+  veiculo: number | undefined;
   valor: number | undefined;
-  comissao: number | undefined;
 
   ngOnInit(): void {
     
   }
 
   addVenda(item:any){
-
-    console.log(item);
-    this.id = this.vend.id;
-    this.veiculo = this.vend.veiculo;
-    this.data = this.vend.data;
-    this.valor = this.vend.valor;
-    this.comissao = this.vend.comissao;
+    console.log(item)
+    var val = {
+      veiculo: item.id,
+      valor: this.valor,
+    }
+    console.log(val.valor);
+    this.service.saleVehicle(val).subscribe(res=>{
+      alert(res.toString());
+    });
   }
 
 }

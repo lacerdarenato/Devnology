@@ -14,6 +14,7 @@ export class ShowDelVeiculoComponent implements OnInit {
   
   ModalTitle?: string;
   ActivateAddEditVehicleComp: boolean=false;
+  ActivateAddEditSaleComp: boolean=false;
   vehi:any;
   vend:any;
 
@@ -39,11 +40,11 @@ export class ShowDelVeiculoComponent implements OnInit {
 
   closeClick(){
     this.ActivateAddEditVehicleComp=false;
+    this.ActivateAddEditSaleComp=false;
     this.refreshVehicleList();
   }
 
   editClick(item:any){
-    console.log(item.situacao);
     this.vehi = item;
     this.ModalTitle = "Editando dados do Veículo";
     this.ActivateAddEditVehicleComp=true;
@@ -59,12 +60,11 @@ export class ShowDelVeiculoComponent implements OnInit {
   }
 
   saleClick(item:any){
-    if(confirm("Conformar a venda do veículo?")){
-      this.service.saleVehicle(item.id).subscribe(data=>{
-        alert(data.toString());
-        this.refreshVehicleList();
-      })
-    }
+    this.vehi = item;
+    this.ModalTitle = "Digite o valor da venda";
+    this.ActivateAddEditSaleComp=true;
+    console.log("saleClick");
+    console.log(this.vehi);
   }
 
   refreshVehicleList(){

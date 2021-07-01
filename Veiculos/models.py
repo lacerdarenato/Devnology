@@ -17,5 +17,4 @@ class Veiculo (models.Model):
     valorCompra = models.DecimalField(max_digits=10, decimal_places=2)
     situacao = models.CharField(max_length=1, choices=escolhaStatus)
 
-    def __str__(self):
-        return self.modelo
+

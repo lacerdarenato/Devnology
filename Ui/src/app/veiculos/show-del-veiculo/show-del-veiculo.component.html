@@ -51,7 +51,7 @@ data-backdrop="static" data-keyboard="false"
             <td>{{vehicle.situacao}}</td>
             <td>
                 <button type="button" class="btn btn-light mr-1"
-                data-bs-toggle="modal" data-bs-target="#exampleModal"
+                data-bs-toggle="modal" data-bs-target="#comprarModal"
                 (click)="editClick(vehicle)"
                 data-backdrop="static" data-keyboard="false">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="blue" class="bi bi-pencil-square" viewBox="0 0 16 16">
@@ -60,7 +60,7 @@ data-backdrop="static" data-keyboard="false"
                   </svg> 
                 </button>
                 <button type="button" class="btn btn-light mr-1"
-                data-bs-toggle="modal" data-bs-target="#exampleModal"
+                data-bs-toggle="modal" data-bs-target="#comprarModal"
                 (click)="deleteClick(vehicle)"
                 data-backdrop="static" data-keyboard="false">
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" class="bi bi-trash" viewBox="0 0 16 16">
@@ -68,7 +68,7 @@ data-backdrop="static" data-keyboard="false"
                     <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
                   </svg>
                 </button>
-                <button *ngIf="vehicle.situacao === 'Disponivel'" type="button" class="btn btn-light mr-1"
+                <button *ngIf="vehicle.situacao === '1'" type="button" class="btn btn-light mr-1"
                 data-bs-toggle="modal" data-bs-target="#venderModal"
                 (click)="saleClick(vehicle)"
                 data-backdrop="static" data-keyboard="false">
@@ -76,18 +76,18 @@ data-backdrop="static" data-keyboard="false"
                     <path d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z"/>
                   </svg>
                 </button>
-                <div class="modal fade" id="venderModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="venderModal" tabindex="-1" aria-labelledby="venderModalLabel" aria-hidden="true">
                   <div class="modal-dialog modal-dialog-centered modal-xl">
                     <div class="modal-content">
                       <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Venda de veículo</h5>
+                        <h5 class="modal-title" id="venderModalLabel">Venda de veículo</h5>
                         <button type="button" class="btn-close"
                         data-bs-dismiss="modal" aria-label="Close"
                         (click)="closeClick()">
                       </button>
                       </div>
                       <div class="modal-body">
-                          <app-add-venda [vend] = "vend"></app-add-venda>
+                          <app-add-venda [vehi] = "vehi"  *ngIf="ActivateAddEditSaleComp"></app-add-venda>
                       </div>
                     </div>
                   </div>
