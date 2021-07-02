@@ -11,15 +11,15 @@ Tarefas
 
 Precisamos que nosso sistema seja capaz de:
 
-- [X] Cadastrar a compra de um veículo, modelo, marca, ano de fabricação, placa, cor, chassi, data da compra e valor da compra.
+- [x] Cadastrar a compra de um veículo, modelo, marca, ano de fabricação, placa, cor, chassi, data da compra e valor da compra.
  
-- [X] Registrar a venda de um veículo, com data da venda, valor da venda e comissão do vendedor (10% sobre o lucro da venda).
+- [x] Registrar a venda de um veículo, com data da venda, valor da venda e comissão do vendedor (10% sobre o lucro da venda).
  
-- [X] Deverá ser possível listar todos os veículos
+- [x] Deverá ser possível listar todos os veículos
  
-- [X] veículos disponíveis
+- [x] veículos disponíveis
  
-- [X] histórico de veículos vendidos.
+- [x] histórico de veículos vendidos.
  
 - [ ] Listar o valor total em compras e vendas.
  
@@ -69,3 +69,12 @@ comissao | models.DecimalField(max_digits=9, decimal_places=2) #tamanho maximo d
 - No FrontEnd tentei modularizar bem o código em componentes para que ele possuísse uma maior coesão e um menor acoplamento. Separando as funções que dependem de dados do Modal da que não dependens, por isso os dois componentes add-edit-veiculo e show-del-veiculo
 
 
+## Montar o app
+
+1. Para executar o projeto é necessário clonar o repositório `git clone https://github.com/lacerdarenato/Devnology.git` dentro do diretório em deseja instalá-lo.
+2. Instale as dependências contidas no arquivo requirements.txt através do comando `pip install -r requirements.txt`
+4. Executar as migrações para montar o banco, utilizando os comandos `python manage.py makemigrations` em seguida crie um superuser com o comando `python manage.py createsuperuser` com email, login e senha e em seguida aplique as migrações com o comando `python manage migrate`
+5. Levantar o server através do comando `python manage.py runserver`
+6. O Webservice rodará na url `http://127.0.0.1:8000/` onde receberá as requisições Http
+7. Para levantar o cliente navegue até o diretório `./Ui` e execute o comando ` ng serve --open`
+8. O CLiente será executado na url `http://localhost:4200/` 
