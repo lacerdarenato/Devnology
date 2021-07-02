@@ -16,7 +16,6 @@ export class ShowDelVeiculoComponent implements OnInit {
   ActivateAddEditVehicleComp: boolean=false;
   ActivateAddEditSaleComp: boolean=false;
   vehi:any;
-  vend:any;
 
   ngOnInit(): void {
     this.refreshVehicleList();
@@ -69,6 +68,18 @@ export class ShowDelVeiculoComponent implements OnInit {
 
   refreshVehicleList(){
     this.service.getVehicleList().subscribe(data=>{
+      this.VehicleList = data;
+    });
+  }
+
+  listAvaliableClick(){
+    this.service.getlistAvaliableVehicle().subscribe(data=>{
+      this.VehicleList = data;
+    });
+  }
+
+  listSoldClick(){
+    this.service.getlistSoldVehicle().subscribe(data=>{
       this.VehicleList = data;
     });
   }

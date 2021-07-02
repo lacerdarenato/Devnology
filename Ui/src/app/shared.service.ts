@@ -31,6 +31,14 @@ readonly APIUrl = "http://127.0.0.1:8000/";
     return this.http.get<any[]>(this.APIUrl + 'vendas/');
   }
 
+  getlistAvaliableVehicle():Observable<any[]>{
+    return this.http.get<any[]>(this.APIUrl + 'veiculos/listardisponiveis')
+  }
+
+  getlistSoldVehicle():Observable<any[]>{
+    return this.http.get<any[]>(this.APIUrl + 'veiculos/listarvendidos')
+  }
+
   saleVehicle(val:any){
     return this.http.post(this.APIUrl + 'vendas/', val);
   }

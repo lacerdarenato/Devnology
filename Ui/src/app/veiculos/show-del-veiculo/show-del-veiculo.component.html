@@ -3,26 +3,33 @@
 data-bs-toggle="modal" data-bs-target="#comprarModal"
 (click)="addClick()"
 data-backdrop="static" data-keyboard="false"
->
-    Comprar Veiculo
-  </button>
+>Comprar Veiculo
+</button>
+<button type="button" class="btn btn-primary float-end m-2"
+(click)="listAvaliableClick()"
+>Listar Disponiveis
+</button>
+<button type="button" class="btn btn-primary float-end m-2"
+(click)="listSoldClick()"
+>Listar Vendidos
+</button>
 
-  <div class="modal fade" id="comprarModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-xl">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">{{ModalTitle}}</h5>
-          <button type="button" class="btn-close"
-          data-bs-dismiss="modal" aria-label="Close"
-          (click)="closeClick()">
+<div class="modal fade" id="comprarModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">{{ModalTitle}}</h5>
+        <button type="button" class="btn-close"
+        data-bs-dismiss="modal" aria-label="Close"
+        (click)="closeClick()">
         </button>
-        </div>
-        <div class="modal-body">
-            <app-add-edit-veiculo [vehi] = "vehi" *ngIf="ActivateAddEditVehicleComp"></app-add-edit-veiculo>
-        </div>
+      </div>
+      <div class="modal-body">
+        <app-add-edit-veiculo [vehi] = "vehi" *ngIf="ActivateAddEditVehicleComp"></app-add-edit-veiculo>
       </div>
     </div>
   </div>
+</div>
 
 <table class="table table-striped">
     <thead>

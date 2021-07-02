@@ -9,14 +9,13 @@ from .serializer import VeiculoSerializer
 @csrf_exempt
 def VehicleViewSet(request, id=0):
     if request.method == 'GET':
-        veiculo = Veiculo.objects.all()
-        veiculo_Serializer = VeiculoSerializer(veiculo, many=True)
+        veiculos = Veiculo.objects.all()
+        veiculo_Serializer = VeiculoSerializer(veiculos, many=True)
         return JsonResponse(veiculo_Serializer.data, safe=False)
 
     elif request.method == 'POST':
         veiculo_data = JSONParser().parse(request)
         veiculo_Serializer = VeiculoSerializer(data=veiculo_data)
-        print(veiculo_Serializer)
         if veiculo_Serializer.is_valid():
             veiculo_Serializer.save()
             return JsonResponse("Veículo cadastrado com sucesso!", safe=False)
@@ -35,3 +34,17 @@ def VehicleViewSet(request, id=0):
         veiculo = Veiculo.objects.get(id=id)
         veiculo.delete()
         return JsonResponse("Veículo deletado com sucesso!", safe=False)
+
+
+def listAvailableVehicles(request):
+    if request.method == 'GET':
+        veiculos = Veiculo.objects.filter(situacao='1')
+        veiculo_Serializer = VeiculoSerializer(veiculos, many=True)
+        return JsonResponse(veiculo_Serializer.data, safe=False)
+
+
+def listSaleVehicles(request):
+    if request.method == 'GET':
+        veiculos = Veiculo.objects.filter(situacao='2')
+        veiculo_Serializer = VeiculoSerializer(veiculos, many=True)
+        return JsonResponse(veiculo_Serializer.data, safe=False)
