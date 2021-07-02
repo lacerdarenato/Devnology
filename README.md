@@ -11,14 +11,21 @@ Tarefas
 
 Precisamos que nosso sistema seja capaz de:
 
--[X] Cadastrar a compra de um veículo, modelo, marca, ano de fabricação, placa, cor, chassi, data da compra e valor da compra.
--[X] Registrar a venda de um veículo, com data da venda, valor da venda e comissão do vendedor (10% sobre o lucro da venda).
--[X] Deverá ser possível listar todos os veículos
--[ ] veículos disponíveis
--[ ] histórico de veículos vendidos.
--[ ] Listar o valor total em compras e vendas. 
--[ ] Lucro/prejuízo do mês
--[ ] valor pago em comissões.
+- [X] Cadastrar a compra de um veículo, modelo, marca, ano de fabricação, placa, cor, chassi, data da compra e valor da compra.
+ 
+- [X] Registrar a venda de um veículo, com data da venda, valor da venda e comissão do vendedor (10% sobre o lucro da venda).
+ 
+- [X] Deverá ser possível listar todos os veículos
+ 
+- [X] veículos disponíveis
+ 
+- [X] histórico de veículos vendidos.
+ 
+- [ ] Listar o valor total em compras e vendas.
+ 
+- [ ] Lucro/prejuízo do mês.
+ 
+- [ ] valor pago em comissões.
 
 Caso queira criar mais funcionalidades fique à vontade, apenas se lembre de mencionar 
 sobre elas no readme.
@@ -38,25 +45,27 @@ Ao finalizar a prova basta enviar o link do repositório no linkedin.
 --- | --- 
 modelo | models.CharField(max_length=30) #tamanho maximo de 30 caracteres
 marca | models.CharField(max_length=30) #tamanho maximo de 30 caracteres
-ano | models.DecimalField(max_digits=4, decimal_places=0) #tamanho maximo de 4 digitos sem decimais
+ano | models.DecimalField(max_digits=4, decimal_places=0) #tamanho maximo de 4 dígitos sem decimais
 cor | models.CharField(max_length=30) #tamanho maximo de 30 caracteres
 placa | models.CharField(max_length=7) #tamanho maximo de 7 caracteres
 chassi | models.CharField(max_length=17, unique=True) #tamanho maximo de 17 caracteres e único
-dataCompra | models.DateField(auto_now_add=True) #Inclusão automatica ao criar novo carro
-valorCompra | models.DecimalField(max_digits=10, decimal_places=2) #tamanho maximo de 4 digitos sem decimais
-situacao | models.CharField(max_length=1, choices=escolhaStatus) #tamanho máximo de 1 caracter que é flag das opções 'disponível' ou 'vendido'
+dataCompra | models.DateField(auto_now_add=True) #Inclusão automática ao criar novo carro
+valorCompra | models.DecimalField(max_digits=10, decimal_places=2) #tamanho maximo de 4 dígitos sem decimais
+situacao | models.CharField(max_length=1, choices=escolhaStatus) #tamanho máximo de 1 caractere que é flag das opções 'disponível' ou 'vendido'
 
 ###Definido o modelo de entrada dos veículos com as seguintes validações:
 
 | Campo | Validação |
 --- | --- 
-veiculo | models.OneToOneField("Veiculos.Veiculo", on_delete=models.CASCADE) #Relacionamento 1:1 com tabela veículos, apaga a venda ao deletar o veículo relacionado
+veiculo | models.OneToOneField("Veiculos.Veiculo", on_delete=models.CASCADE) #Relacionamento 1:1 com tabela veículos, apaga a venda ao se deletar o veículo relacionado
 dataDeVenda | models.DateField() #modelo de Data
-valor | models.DecimalField(max_digits=10, decimal_places=2) #tamanho maximo de 10 digitos com duas casas decimais
-comissao | models.DecimalField(max_digits=9, decimal_places=2) #tamanho maximo de 9 digitos com duas casas decimais
+valor | models.DecimalField(max_digits=10, decimal_places=2) #tamanho maximo de 10 dígitos com duas casas decimais
+comissao | models.DecimalField(max_digits=9, decimal_places=2) #tamanho maximo de 9 dígitos com duas casas decimais
 
 
-- Definida a relação entre venda e veículo de 1:1, achei mais coerente e mais facil de validar para a regra de negócio cada venda possuir apenas veículo
-- Incluído o campo situação para determinar status do carro e facilitar na filtragem de histórico de vendas, no banco armazena-se 1 caracter (economia de espaço) e quando a API receber a requisição, o serializer dela "traduz" o caracter para a informação mais legível ao usuário.
+- Definida a relação entre venda e veículo de 1:1, achei mais coerente e mais fácil de validar para a regra de negócio cada venda possuir apenas veículo.
+- Incluído o campo situação para determinar status do carro e facilitar na filtragem de histórico de vendas, no banco armazena-se 1 caractere (economia de espaço) e quando a API receber a requisição, o serializer dela "traduz" o caracter para a informação mais legível ao usuário.
+- Com o campo Situação, incluímos dois botões que chamam rotas distintas que listam todos os veículos, filtrados pela situação do veículo, exibindo assim a lista.
+- No FrontEnd tentei modularizar bem o código em componentes para que ele possuísse uma maior coesão e um menor acoplamento. Separando as funções que dependem de dados do Modal da que não dependens, por isso os dois componentes add-edit-veiculo e show-del-veiculo
 
 
