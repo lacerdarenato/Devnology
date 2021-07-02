@@ -7,25 +7,22 @@ Sinta-se à vontade para usar a linguagem que achar melhor e pode usar templates
 ###Crie um arquivo readme falando um pouco sobre quais as decisões que você tomou para a resolução do exercício, e, caso não tenha feito algo, explique o motivo. Também informe os passos para fazer sua aplicação rodar, e caso tenha, o processo de deploy.
 
 ---
-Tarefas
+##Tarefas
 
 Precisamos que nosso sistema seja capaz de:
 
 - [x] Cadastrar a compra de um veículo, modelo, marca, ano de fabricação, placa, cor, chassi, data da compra e valor da compra.
- 
 - [x] Registrar a venda de um veículo, com data da venda, valor da venda e comissão do vendedor (10% sobre o lucro da venda).
- 
 - [x] Deverá ser possível listar todos os veículos
- 
 - [x] veículos disponíveis
- 
 - [x] histórico de veículos vendidos.
- 
-- [ ] Listar o valor total em compras e vendas.
- 
-- [ ] Lucro/prejuízo do mês.
- 
-- [ ] valor pago em comissões.
+---
+##Pendentes
+- [ ] Listar o valor total em compras e vendas. (solução: executar reduce(compras) na lista Json de veículos e reduce(vendas) na lista Json de vendas e exibir)
+- [ ] Lucro/prejuízo do mês. (Possível Solução: reduce(na data do mês) e depois outro reduce para somar os valores daquele mês)
+- [ ] valor pago em comissões. (Solução: executar reduce(comissões) na lista json de vendas)
+
+A princípio motivo de não prossegui é ter que entender melhor como funciona esse reduce, pois isto me impede de continuar. Os somatórios que não dependem da data acredito que consiga fazer, já o de lucro/prejuízo vou precisar de mais conhecimento (ou seja tempo para estudar)
 
 Caso queira criar mais funcionalidades fique à vontade, apenas se lembre de mencionar 
 sobre elas no readme.
@@ -35,11 +32,11 @@ Qualquer dúvida entre em contato comigo pelo linkedin, estarei à disposição 
 Ao finalizar a prova basta enviar o link do repositório no linkedin.
 
 ---
-
+##Definições
 - Escolhi trabalhar com Python (framework Django) para a API e Angular como client por ja conhecer as ferramentas e por ambas facilitarem na organização e legibilidade do código. Alem de facilitarem os inputs dos dados na API.
 
 
-###Definido o modelo de entrada dos veículos com as seguintes validações:
+- Definido o modelo de entrada dos veículos com as seguintes validações:
 
 | Campo | Validação |
 --- | --- 
@@ -53,7 +50,7 @@ dataCompra | models.DateField(auto_now_add=True) #Inclusão automática ao criar
 valorCompra | models.DecimalField(max_digits=10, decimal_places=2) #tamanho maximo de 4 dígitos sem decimais
 situacao | models.CharField(max_length=1, choices=escolhaStatus) #tamanho máximo de 1 caractere que é flag das opções 'disponível' ou 'vendido'
 
-###Definido o modelo de entrada dos veículos com as seguintes validações:
+- Definido o modelo de entrada dos veículos com as seguintes validações:
 
 | Campo | Validação |
 --- | --- 
